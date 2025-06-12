@@ -49,7 +49,7 @@
                 const data = await res.json();
 
                 if (!res.ok) {
-                throw new Error(data.error || data.message || "Unknown error");
+                throw new Error(data.error || data.message || "Unknown error.");
                 }
                 
                 output.textContent = data.message || "No message returned.";
