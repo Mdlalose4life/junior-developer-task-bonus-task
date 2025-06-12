@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API Validator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 8rem; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 120%)}
+    input, button { margin: 0.5rem 0; padding: 0.5rem; width: 100%; max-width: 400px; }
+    pre { background: #cefaf0; padding: 1rem; border-radius: 5px; overflow: auto; }
+    div {border: 4px solid #808080; border-radius: 3rem; padding: 5rem; }
+    button {border-radius: 4rem;}
+  </style>
+</head>
+<body>
+    <div>
+        <h1>API Validator</h1>
+        <form id="validatorForm">
+          <label>Email Address:</label>
+          <input type="email" id="email" required /><br/><br/>
+      
+          <label>API Endpoint URL:</label>
+          <input type="url" id="apiUrl" required /><br/><br/>
+      
+          <button type="submit">Validate API</button>
+        </form>      
+    </div>
+  <h2>Results:</h2>
+  <pre id="responseOutput">Waiting for input...</pre>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById('validatorForm');
+      const output = document.getElementById('responseOutput');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const apiUrl = encodeURIComponent(document.getElementById('apiUrl').value);
+        const encodedEmail = encodeURIComponent(email);
+
+        const validatorURL = `https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/junior-dev?url=${apiUrl}&email=${encodedEmail}`;
+
+        output.textContent = "Sending request...";
+
+        fetch(validatorURL)
+          .then(res => {
+            if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.json();
+          })
+          .then(data => {
+            output.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(err => {
+            output.textContent = "Error: " + err.message;
+          });
+      });
+    });
+  </script>
+</body>
+</html>
