@@ -1,0 +1,121 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 120%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+input,
+button {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+pre {
+    background: #cefaf0;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 3em;
+    width: 30%;
+    min-height: 300px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Headings */
+form h1,
+form h2
+{
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 1.4rem;
+    margin-top: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 1rem;
+    margin-top: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs inside form */
+form input {
+    background: transparent;
+    width: 80%;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 500px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Button inside form */
+form button {
+    background: transparent;
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 500px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        margin: 2rem;
+        height: 98vh;
+    }
+
+    form {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    form input,
+    form button {
+        width: 100%;
+    }
+
+    pre {
+        font-size: 0.9rem;
+    }
+}
